@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_light"
+    tools:context=".MainActivity">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_navy"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secure File Locker"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RSA-2048 &amp; AES-256 Encryption"
+            android:textColor="#BBDEFB"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- CARD 1: CRYPTO ENGINE -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Kunci Enkripsi"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_navy"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <!-- Tombol Generate (Beri weight 1 agar lebar) -->
+                        <Button
+                            android:id="@+id/btnGenerateKeys"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Generate Keys"
+                            android:backgroundTint="@color/accent_blue"
+                            app:icon="@android:drawable/ic_lock_lock" />
+
+                        <!-- Tombol History Baru (Kecil di samping) -->
+                        <Button
+                            android:id="@+id/btnKeyHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="History"
+                            android:backgroundTint="@color/teal_700"
+                            app:icon="@android:drawable/ic_menu_recent_history"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            android:tooltipText="Riwayat Kunci"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvKeyStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Keys Not Found"
+                        android:textColor="@color/error_red"
+                        android:textSize="12sp"
+                        android:textAlignment="center"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CARD 2: FILE SELECTION -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Pilih Dokumen"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_navy"/>
+
+                    <Button
+                        android:id="@+id/btnPickFile"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Browse File"
+                        app:icon="@android:drawable/ic_menu_search" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedFile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No file selected"
+                        android:textSize="12sp"
+                        android:maxLines="1"
+                        android:ellipsize="middle"
+                        android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CARD 3: SERVER CONFIG -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="3. Konfigurasi Server"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_navy"/>
+
+                        <Button
+                            android:id="@+id/btnScanServer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Auto Scan"
+                            android:textSize="10sp"
+                            android:backgroundTint="@color/teal_700"/>
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/rgServerMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp">
+
+                        <!-- Pilihan 1: Local Laravel -->
+                        <RadioButton
+                            android:id="@+id/rbArtisan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Local Artisan (8000)"
+                            android:checked="true"/>
+
+                        <!-- Pilihan 2: Local XAMPP -->
+                        <RadioButton
+                            android:id="@+id/rbXampp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Local Apache (XAMPP)"/>
+
+                        <!-- Pilihan 3: Website Online (BARU) -->
+                        <RadioButton
+                            android:id="@+id/rbOnline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Website Online (aqildev)"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_navy"/>
+                    </RadioGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Server Address"
+                        android:layout_marginTop="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etServerIp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="192.168.1.X:8000/api"
+                            android:inputType="textUri"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- MAIN ACTION -->
+            <Button
+                android:id="@+id/btnEncryptUpload"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="ENCRYPT &amp; UPLOAD"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/error_red"
+                app:cornerRadius="30dp"
+                app:elevation="8dp"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- TERMINAL LOG -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/terminal_bg"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvTerminalTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SYSTEM LOG >_"
+                    android:fontFamily="monospace"
+                    android:textColor="#808080"
+                    android:textStyle="bold"/>
+
+                <ImageButton
+                    android:id="@+id/btnCopyLog"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_save"
+                    app:tint="#808080"/>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tvTerminalTitle"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tvLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Waiting for command..."
+                        android:fontFamily="monospace"
+                        android:textColor="@color/terminal_text"
+                        android:textSize="12sp"/>
+                </ScrollView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UAS KIJ - 2025"
+                android:textAlignment="center"
+                android:padding="20dp"
+                android:textColor="#9E9E9E"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

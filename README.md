@@ -57,7 +57,7 @@ Berikut adalah langkah-langkah sistem saat tombol **"Encrypt & Upload"** ditekan
 
 | Splash Screen | Dashboard | Key History |
 |:---:|:---:|:---:|
-| <img src="path/to/screenshot1.png" width="200"> | <img src="path/to/screenshot2.png" width="200"> | <img src="path/to/screenshot3.png" width="200"> |
+| <img src="img_droid/splashscreen.jpeg" width="200"> | <img src="img_droid/dashboard.jpeg" width="200"> | <img src="img_droid/history_key.jpeg" width="200"> |
 
 *> Catatan: Ganti `path/to/screenshot` dengan lokasi gambar yang sebenarnya di folder repositori Anda.*
 

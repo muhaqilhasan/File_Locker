@@ -73,7 +73,7 @@ Berikut adalah langkah-langkah sistem saat tombol **"Encrypt & Upload"** ditekan
 ### Langkah-langkah
 1.  **Clone Repository**
     ```bash
-    git clone [https://github.com/username-anda/nama-repo-android.git](https://github.com/username-anda/nama-repo-android.git)
+    git clone https://github.com/username-anda/nama-repo-android.git
     ```
 2.  **Buka di Android Studio**
     * Pilih `File > Open`.

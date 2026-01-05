@@ -97,10 +97,6 @@ Aplikasi ini dibuat sebagai bagian dari **Tugas Akhir / UAS Mata Kuliah Keamanan
 
 ---
 
-## 👨‍💻 Author
 
-* **Nama:** [Nama Lengkap Anda]
-* **NIM:** [NIM Anda]
-* **Kampus:** [Nama Kampus Anda]
 
 Dibuat dengan ❤️ dan Kopi.
